@@ -45,7 +45,7 @@ pub fn main() {
 
     // Create a store for managing WASM data and any custom user-defined state.
     let mut store = Store::new(&engine, ());
-    
+
     // Parse the component bytes and load its imports and exports.
     let component = Component::new(&engine, WASM).unwrap();
     // Create a linker that will be used to resolve the component's imports, if any.
@@ -60,7 +60,7 @@ pub fn main() {
 
     // Create an example list to test upon.
     let example = ["a", "b", "c"].iter().map(ToString::to_string).collect::<Vec<_>>();
-    
+
     println!("Calling select-nth({example:?}, 1) == {}", select_nth.call(&mut store, (example.clone(), 1)).unwrap());
     // Prints 'Calling select-nth(["a", "b", "c"], 1) == b'
 }
@@ -72,7 +72,7 @@ pub fn main() {
 
 - Parsing and instantiating WASM component binaries
 - Runtime generation of component interface types
-- Specialized list types for faster 
+- Specialized list types for faster
 - Structural equality of component interface types, as mandated by the spec
 - Support for guest resources
 - Support for strongly-typed host resources with destructors
